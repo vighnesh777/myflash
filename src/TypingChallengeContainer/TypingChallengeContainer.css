@@ -1,0 +1,12 @@
+.TCC{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+}
+.DC{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
