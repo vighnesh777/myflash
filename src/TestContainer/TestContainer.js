@@ -1,4 +1,5 @@
 import React from 'react';
+import Tryagain from '../Tryagain/Tryagain';
 import "./TestContainer.css"
 
 const TestContainer = ({
@@ -8,7 +9,7 @@ const TestContainer = ({
         <div className="TC">
             <div className="TAC">
                 <h1>
-                    Try Again Container
+                    <Tryagain words={words} characters={characters} wpm={wpm} />
                 </h1>
             </div>
         </div>
