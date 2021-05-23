@@ -1,24 +1,47 @@
-import React from 'react';
-import Tryagain from '../Tryagain/Tryagain';
-import TypingChallengeContainer from '../TypingChallengeContainer/TypingChallengeContainer';
-import "./TestContainer.css"
+import React from "react";
+import TryAgain from "../Tryagain/Tryagain";
+import TypingChallengeContainer from "../TypingChallengeContainer/TypingChallengeContainer";
+import "./TestContainer.css";
 
 const TestContainer = ({
-    words, characters, wpm
+    selectedParagraph,
+    testInfo,
+    onInputChange,
+    words,
+    characters,
+    wpm,
+    timeRemaining,
+    timerStarted,
+    startAgain,
 }) => {
     return (
-        <div className="TC">
-            <div className="TCC" data-aos="fade-up">
-                <TypingChallengeContainer words={words} characters={characters} wpm={wpm} />
-            </div>
-            {/*} <div className="TAC">
-                <h1>
-                    <Tryagain words={words} characters={characters} wpm={wpm} />
-                </h1>
-    </div>*/}
+        <div className="test-container">
+            {/* Show the try again or start screen */}
+            {timeRemaining > 0 ? (
+                <div data-aos="fade-up" className="typing-challenge-cont">
+                    <TypingChallengeContainer
+                        selectedParagraph={selectedParagraph}
+                        testInfo={testInfo}
+                        onInputChange={onInputChange}
+                        words={words}
+                        characters={characters}
+                        wpm={wpm}
+                        timeRemaining={timeRemaining}
+                        timerStarted={timerStarted}
+                    />
+                </div>
+            ) : (
+                <div className="try-again-cont">
+                    <TryAgain
+                        words={words}
+                        characters={characters}
+                        wpm={wpm}
+                        startAgain={startAgain}
+                    />
+                </div>
+            )}
         </div>
     );
-
 };
 
 export default TestContainer;

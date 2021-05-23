@@ -1,28 +1,34 @@
-import React from 'react';
-import './Landing.css';
-import unnamed from "../assets/unnamed.png";
-import Typewriter from 'typewriter-effect';
+import React from "react";
+import Typewriter from "typewriter-effect";
+
+import "./Landing.css";
+import unnamed1 from "../assets/unnamed1.png";
 
 const Landing = () => {
     return (
-        <div className="Landing-cont">
-            <div data-aos="fade-right"
-                data-aos-easing="ease-in-sine" class="Landing-left">
-                <h1 className="Landing-header">Can you type...</h1>
-                <div className="type-cont">
+        <div className="landing-container">
+            <div data-aos="fade-right" className="landing-left">
+                <h1 className="landing-header">Can you type</h1>
+                <div className="typewriter-container">
                     <Typewriter
                         options={{
-                            strings: ['Fast?', 'Quick?', 'Like Flash?'],
+                            strings: ["Fast?", "Correct?", "Quick?"],
                             autoStart: true,
                             loop: true,
                         }}
                     />
                 </div>
             </div>
-            <div data-aos="fade-left" className="Landing-right">
-                <img src={unnamed} className="flash" alt="flash" />
+            <div className="landing-right">
+                <img
+                    data-aos="fade-left"
+                    className="flash-image"
+                    src={unnamed1}
+                    alt="flash"
+                />
             </div>
         </div>
     );
-}
+};
+
 export default Landing;

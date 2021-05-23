@@ -1,11 +1,13 @@
-import React from 'react';
-import "./Tryagain.css"
+import React from "react";
+import "./Tryagain.css";
 
-const Tryagain = ({ words, characters, wpm }) => {
+const TryAgain = ({ words, characters, wpm, startAgain }) => {
+    const url = "theleanprogrammer.com";
     return (
-        <div class="TAC">
-            <h1><b>Test Results</b></h1>
-            <div className="RC">
+        <div data-aos="fade-up" className="try-again-container">
+            <h1>Test Results</h1>
+
+            <div className="result-container">
                 <p>
                     <b>Characters:</b> {characters}
                 </p>
@@ -13,16 +15,46 @@ const Tryagain = ({ words, characters, wpm }) => {
                     <b>Words:</b> {words}
                 </p>
                 <p>
-                    <b>Speed:</b> {wpm} wpm
+                    <b>Speed</b> {wpm} wpm
                 </p>
             </div>
+
             <div>
-                <button className="button retry"><i class="fa fa-refresh"></i>Retry</button>
-                <button className="button share" onClick={() => { window.open("https://www.facebook.com/sharer/sharer.php?u=myflashtype.herokuapp.com", "facebook-share-dailog", "width=800,height=600"); }}>
-                    <i class="fa fa-facebook"></i>Share</button>
+                <button
+                    onClick={() => startAgain()}
+                    className="end-buttons start-again-btn"
+                >
+                    Re-try
+                </button>
+                <button
+                    onClick={() =>
+                        window.open(
+                            "https://www.facebook.com/sharer/sharer.php?u=" +
+                            url,
+                            "facebook-share-dialog",
+                            "width=800,height=600"
+                        )
+                    }
+                    className="end-buttons share-btn"
+                >
+                    Share
+                </button>
+                <button
+                    onClick={() =>
+                        window.open(
+                            "https://twitter.com/intent/tweet?text=Check%20this%20out%20" +
+                            url,
+                            "Twitter",
+                            "width=800,height=600"
+                        )
+                    }
+                    className="end-buttons tweet-btn"
+                >
+                    Tweet
+                </button>
             </div>
         </div>
     );
 };
 
-export default Tryagain;
+export default TryAgain;

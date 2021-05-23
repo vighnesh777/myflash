@@ -1,18 +1,45 @@
-import React from 'react';
-import ChallengeDetailsCard from '../ChallengeDetailsCard/ChallengeDetailsCard';
-import './TypingChallengeContainer.css';
+import React from "react";
+import ChallengeDetailsCard from "../ChallengeDetailsCard/ChallengeDetailsCard";
+import TypingChallenge from "../TypingChallenge/TypingChallenge";
+import "./TypingChallengeContainer.css";
 
-const TypingChallengeContainer = ({ words, characters, wpm }) => {
+const TypingChallengeContainer = ({
+    selectedParagraph,
+    testInfo,
+    onInputChange,
+    words,
+    characters,
+    wpm,
+    timeRemaining,
+    timerStarted,
+}) => {
     return (
-        <div className="TCC">
-            {/*Details*/}
-            <div className="DC">
-                <ChallengeDetailsCard cardName="Word" cardValue={words} />
-                <ChallengeDetailsCard cardName="Characters" cardValue={characters} />
-                <ChallengeDetailsCard cardName="Speed" cardValue={wpm} />
+        <div className="typing-challenge-container">
+            <div className="details-container">
+                {/* Words Typed */}
+                <ChallengeDetailsCard cardName="Words" cardValue={words} />
+
+                {/* Characters Typed */}
+                <ChallengeDetailsCard
+                    cardName="Characters"
+                    cardValue={characters}
+                />
+
+                {/* Mistakes */}
+                <ChallengeDetailsCard cardName="WPM" cardValue={wpm} />
             </div>
-            {/*Real part*/}
+
+            <div className="typewriter-container">
+                <TypingChallenge
+                    testInfo={testInfo}
+                    selectedParagraph={selectedParagraph}
+                    onInputChange={onInputChange}
+                    timeRemaining={timeRemaining}
+                    timerStarted={timerStarted}
+                />
+            </div>
         </div>
     );
 };
+
 export default TypingChallengeContainer;

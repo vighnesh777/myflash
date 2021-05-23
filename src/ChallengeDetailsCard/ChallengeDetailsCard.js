@@ -1,19 +1,13 @@
-import React from 'react';
-import './ChallengeDetailsCard.css'
-
+import React from "react";
+import "./ChallengeDetailsCard.css";
 
 const ChallengeDetailsCard = ({ cardName, cardValue }) => {
     return (
-        <div className="DCC">
-            <div className="CN">
-                {cardName}
-            </div>
-            <div className="CV">
-                {cardValue}
-            </div>
+        <div className="details-card-container">
+            <div className="card-name">{cardName}</div>
+            <div className="card-value">{cardValue}</div>
         </div>
     );
 };
-
 
 export default ChallengeDetailsCard;
